@@ -1,5 +1,6 @@
 class BillsController < ApplicationController
   before_action :set_bill, only: %i[ show edit update destroy ]
+  before_action :get_employees
 
   # GET /bills or /bills.json
   def index
@@ -22,7 +23,6 @@ class BillsController < ApplicationController
   # POST /bills or /bills.json
   def create
     @bill = Bill.new(bill_params)
-
     respond_to do |format|
       if @bill.save
         format.html { redirect_to bill_url(@bill), notice: "Bill was successfully created." }
@@ -63,8 +63,12 @@ class BillsController < ApplicationController
       @bill = Bill.find(params[:id])
     end
 
+    def get_employees
+      @employees = Employee.all
+    end
+
     # Only allow a list of trusted parameters through.
     def bill_params
-      params.require(:bill).permit(:amount, :type, :employee_id)
+      params.require(:bill).permit(:amount, :bill_type, :employee_id)
     end
 end

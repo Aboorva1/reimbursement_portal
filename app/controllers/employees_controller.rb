@@ -1,5 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: %i[ show edit update destroy ]
+  before_action :get_departments
 
   # GET /employees or /employees.json
   def index
@@ -63,8 +64,11 @@ class EmployeesController < ApplicationController
       @employee = Employee.find(params[:id])
     end
 
+    def get_departments
+      @departments = Department.all
+    end
     # Only allow a list of trusted parameters through.
     def employee_params
-      params.require(:employee).permit(:first_name, :last_name, :email, :designation)
+      params.require(:employee).permit(:first_name, :last_name, :email, :designation, :department_id)
     end
 end
