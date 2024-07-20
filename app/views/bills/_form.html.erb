@@ -18,12 +18,12 @@
 
   <div>
     <%= form.label :type, style: "display: block" %>
-    <%= form.text_field :type %>
+    <%= form.collection_select :bill_type, TYPES.map { |type| [type, type] }, :last, :first, prompt: "Select Type" %>
   </div>
 
   <div>
     <%= form.label :employee_id, style: "display: block" %>
-    <%= form.text_field :employee_id %>
+    <%= form.collection_select :employee_id, @employees, :id, :full_name, prompt:"Select employee" %>
   </div>
 
   <div>
