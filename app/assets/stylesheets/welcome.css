@@ -1,32 +1,42 @@
 
 .welcome-background {
-  background-image: url('purple.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('reimbursement.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
   text-align: center;
 }
 
-.welcome-background h1 {
+.welcome-content h1 {
   font-size: 3rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
+  color: #FFFFFF;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 0, 0, 0.5);
 }
 
-.welcome-background .btn {
+.welcome-content .btn {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #FFFFFF;
   background-color: #622b8a;
   border-color: #622b8a;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
 }
 
-.welcome-background .btn:hover {
+.welcome-content .btn:hover {
   background-color: #8a2b8b;
   border-color: #8a2b8b;
 }

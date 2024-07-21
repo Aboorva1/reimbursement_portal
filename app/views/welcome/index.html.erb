@@ -8,9 +8,11 @@
   <%= javascript_importmap_tags %>
 </head>
 <body>
-  <div class="container-fluid d-flex flex-column justify-content-center align-items-center vh-100 welcome-background">
-    <h1 style="color: #622b8a;">Welcome to Reimbursement Portal</h1>
-    <a href="<%= employees_path %>" class="btn btn-light btn-lg mt-4">Get Started <i class="fas fa-arrow-right"></i></a>
+  <div class="welcome-background"></div>
+    <div class="welcome-content container-fluid d-flex flex-column justify-content-center align-items-center vh-100">
+      <h1>Welcome to Reimbursement Portal</h1>
+      <a href="<%= employees_path %>" class="btn btn-light btn-lg mt-4">Get Started <i class="fas fa-arrow-right"></i></a>
+    </div>
   </div>
 </body>
 </html>
