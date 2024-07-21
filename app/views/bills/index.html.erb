@@ -10,7 +10,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-6">
-                    <h2 class="card-title">Bills</h2>
+                    <h2 class="card-title" style="color: #8645b5">Bills</h2>
                   </div>
                   
                   <div class="col-6 text-end mt-2">
@@ -23,7 +23,7 @@
                 <% if @bills.any?%>
                   <div class="row mt-4">
                     <div class="col-md-12">
-                      <p class="h4 font-weight-bold">Total Submitted Amount: <%= number_to_currency(@total_amount, unit: "₹") %></span></p>
+                      <p class="h4 font-weight-bold">Total Submitted Amount <%= number_to_currency(@total_amount, unit: "₹") %></span></p>
                     </div>
                   </div>
                 <% end %>
