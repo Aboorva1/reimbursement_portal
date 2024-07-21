@@ -20,32 +20,33 @@
                     <% end %>
                   </div>
                 </div>
-                <div class="row mt-4">
-                  <div class="col-md-12">
-                    <p class="h4 font-weight-bold">Total Submitted Amount: <%= number_to_currency(@total_amount, unit: "₹") %></span></p>
+                <% if @bills.any?%>
+                  <div class="row mt-4">
+                    <div class="col-md-12">
+                      <p class="h4 font-weight-bold">Total Submitted Amount: <%= number_to_currency(@total_amount, unit: "₹") %></span></p>
+                    </div>
                   </div>
-                </div>
-            
-                <div class="table-responsive mt-5">
-                  <table class="table table-hover mb-3" id="employees">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">TYPE</th>
-                        <th scope="col">AMOUNT</th>
-                        <th scope="col">DATE OF SUBMISSION</th>
-                        <th scope="col">SUBMITTED BY</th>
-                        <th scope="col">DEPARTMENT</th>
-                        <th></th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody class="mt-4">
-                      <% @bills.each do |bill| %>
-                        <%= render bill %>
-                      <% end %>
-                    </tbody>
-                  </table>
-                </div>
+                <% end %>
+                  <div class="table-responsive mt-5">
+                    <table class="table table-hover mb-3" id="employees">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">TYPE</th>
+                          <th scope="col">AMOUNT</th>
+                          <th scope="col">DATE OF SUBMISSION</th>
+                          <th scope="col">SUBMITTED BY</th>
+                          <th scope="col">DEPARTMENT</th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody class="mt-4">
+                        <% @bills.each do |bill| %>
+                          <%= render bill %>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  </div>
                 <div class="row mt-4">
                   <div class="text-center">
                     <%= link_to 'Back', employees_path, class: "btn btn-secondary" %>
