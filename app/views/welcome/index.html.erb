@@ -6,17 +6,11 @@
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_importmap_tags %>
-  <style>
-    .welcome-background {
-      background: linear-gradient(to bottom right, #87CEEB, #1E90FF);
-      font-family: 'Georgia', serif;
-    }
-  </style>
 </head>
 <body>
-  <div class="container-fluid d-flex flex-column justify-content-center align-items-center vh-100 welcome-background text-white">
-    <h1 class="display-3" style="color: #FFFFE0;">Welcome to Reimbursement Portal</h1>
-    <a href="<%= employees_path %>" class="btn btn-light btn-lg mt-4">Get Started</a>
+  <div class="container-fluid d-flex flex-column justify-content-center align-items-center vh-100 welcome-background">
+    <h1 style="color: #622b8a;">Welcome to Reimbursement Portal</h1>
+    <a href="<%= employees_path %>" class="btn btn-light btn-lg mt-4">Get Started <i class="fas fa-arrow-right"></i></a>
   </div>
 </body>
 </html>
