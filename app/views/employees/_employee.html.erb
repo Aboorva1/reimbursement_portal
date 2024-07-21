@@ -1,30 +1,26 @@
-<div id="<%= dom_id employee %>">
-  <p>
-    <strong>First name:</strong>
-    <%= employee.first_name %>
-  </p>
+<tr id="<%= dom_id employee %>" class="employee">
+  <td>
+    <%= employee.full_name %>
+  </td>
 
-  <p>
-    <strong>Last name:</strong>
-    <%= employee.last_name %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= employee.email %>
-  </p>
-
-  <p>
-    <strong>Designation:</strong>
+  <td>
     <%= employee.designation %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Department:</strong>
+  <td>
     <%= employee.department.name %>
-  </p>
+  </td>
 
-  <%= link_to "Edit this employee", edit_employee_path(employee) %> 
-  <%= button_to "Destroy this employee", employee, method: :delete %>
+  <td>
+    <%= link_to edit_employee_path(employee), class:"btn btn-warning" do %>
+      <i class="fas fa-edit"></i>
+    <% end %>
+  </td>
 
-</div>
+  <td>
+    <%= button_to employee, method: :delete, class:"btn btn-warning" do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </td>
+  
+</tr>

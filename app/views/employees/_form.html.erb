@@ -1,42 +1,63 @@
-<%= form_with(model: employee) do |form| %>
-  <% if employee.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
-      <ul>
-        <% employee.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<section class="intro">
+  <div class="gradient-custom-1 h-100">
+    <div class="d-flex pt-5 mt-5 h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <div class="card shadow-lg border-0 rounded">
+              <div class="card-body">
+                <h2 class="card-title text-center"><%= @employee.new_record? ? 'New Employee' : 'Edit Employee' %></h2>
+                <%= form_with(model: employee, class: 'needs-validation', novalidate: true) do |form| %>
+                  
+                  <div class="row">
+                    <div class="col-6">
+                      <%= form.label :first_name, class: 'form-label' %>
+                      <%= form.text_field :first_name, class: 'form-control', required: true %>
+                    </div>
+
+                    <div class="col-6">
+                      <%= form.label :last_name, class: 'form-label' %>
+                      <%= form.text_field :last_name, class: 'form-control', required: true %>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <%= form.label :email, class: 'form-label' %>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                      </div>
+                      <%= form.text_field :amount, class: 'form-control' %>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <%= form.label :designation, class: 'form-label' %>
+                    <%= form.text_field :designation, class: 'form-control', required: true %>
+                  </div>
+
+                  <div class="mb-3">
+                    <%= form.label :department_id, class: 'form-label' %>
+                    <%= form.collection_select :department_id, @departments, :id, :name, { prompt: "Select a Department" }, { class: 'form-select' } %>
+                  </div>
+
+                  <div class="row mt-4">
+                    <div class="col-6">
+                      <%= link_to 'Back', employees_path, class: "btn btn-secondary" %>
+                    </div>
+
+                    <div class="col-6 text-end">
+                      <%= form.submit 'Save', class: "btn btn-success" %>
+                    </div>
+                  </div>
+                  
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
   </div>
-
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div>
-    <%= form.label :designation, style: "display: block" %>
-    <%= form.text_field :designation %>
-  </div>
-
-  <div>
-    <%= form.label :department_id %>
-    <%= form.collection_select :department_id, @departments, :id, :name, prompt: "Select a Department" %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</section>

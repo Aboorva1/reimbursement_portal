@@ -1,11 +1,39 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Employees</h1>
-
-<div id="employees">
-  <% @employees.each do |employee| %>
-    <%= render employee %>
-  <% end %>
-</div>
-
-<%= link_to "New employee", new_employee_path %>
+<section class="intro">
+  <div class="gradient-custom-1 h-100">
+    <div class="d-flex h-100 mt-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-lg border-0 rounded">
+              <div class="card-body">
+                <h2 class="card-title text-center">Employee List</h2>
+                <div class="table-responsive mt-5">
+                  <% if @employees.any? %>
+                    <table class="table table-hover mb-0" id="employees">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">FULL NAME</th>
+                          <th scope="col">DESIGNATION</th>
+                          <th scope="col">DEPARTMENT</th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody class="mt-4">
+                        <% @employees.each do |employee| %>
+                          <%= render employee %>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  <% else %>
+                  <p class="no-employees-message"><i class="fas fa-exclamation-triangle"></i>No employees found. Create employees to get started</p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
