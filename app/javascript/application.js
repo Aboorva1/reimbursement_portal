@@ -2,7 +2,7 @@
 import "jquery";
 
 jQuery('#new_bill').on('click', function(event) {
-  var rowCount = jQuery('#employees tbody tr').length > 1;
+  var rowCount = jQuery('#employees tbody tr').length > 0;
   if (!rowCount) {
     event.preventDefault();
     alert('No employees available. Please add employees.');
