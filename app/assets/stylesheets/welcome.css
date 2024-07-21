@@ -1,0 +1,27 @@
+.welcome-background {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: -5%; 
+}
+
+.welcome-background h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #622b8a;
+  margin-bottom: 1.5rem;
+}
+
+.welcome-background .btn {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #622b8a;
+  border-color: #622b8a;
+}
+
+.welcome-background .btn:hover {
+  background-color: #8a2b8b;
+  border-color: #8a2b8b;
+}

@@ -5,6 +5,7 @@ class BillsController < ApplicationController
   # GET /bills or /bills.json
   def index
     @bills = Bill.all
+    @total_amount = @bills.sum(:amount)
   end
 
   # GET /bills/1 or /bills/1.json
@@ -25,7 +26,7 @@ class BillsController < ApplicationController
     @bill = Bill.new(bill_params)
     respond_to do |format|
       if @bill.save
-        format.html { redirect_to bill_url(@bill), notice: "Bill was successfully created." }
+        format.html { redirect_to bills_url, notice: "Bill was successfully created." }
         format.json { render :show, status: :created, location: @bill }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class BillsController < ApplicationController
   def update
     respond_to do |format|
       if @bill.update(bill_params)
-        format.html { redirect_to bill_url(@bill), notice: "Bill was successfully updated." }
+        format.html { redirect_to bills_url, notice: "Bill was successfully updated." }
         format.json { render :show, status: :ok, location: @bill }
       else
         format.html { render :edit, status: :unprocessable_entity }

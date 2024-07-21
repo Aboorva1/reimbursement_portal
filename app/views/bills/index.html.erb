@@ -1,14 +1,61 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Bills</h1>
 
-<div id="bills">
-  <% @bills.each do |bill| %>
-    <%= render bill %>
-    <p>
-      <%= link_to "Show this bill", bill %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New bill", new_bill_path %>
+<section class="intro">
+  <div class="gradient-custom-1 h-100">
+    <div class="d-flex h-100 mt-5 pt-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-lg border-0 rounded">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-6">
+                    <h2 class="card-title">Bills</h2>
+                  </div>
+                  
+                  <div class="col-6 text-end mt-2">
+                    <%= link_to new_bill_path, class: "btn", style:"color:white; background-color:#7e38b0" do %>
+                      <i class="fas fa-plus"></i>
+                      Create Bill
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-md-12">
+                    <p class="h4 font-weight-bold">Total Submitted Amount: <%= number_to_currency(@total_amount, unit: "₹") %></span></p>
+                  </div>
+                </div>
+            
+                <div class="table-responsive mt-5">
+                  <table class="table table-hover mb-3" id="employees">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">TYPE</th>
+                        <th scope="col">AMOUNT</th>
+                        <th scope="col">DATE OF SUBMISSION</th>
+                        <th scope="col">SUBMITTED BY</th>
+                        <th scope="col">DEPARTMENT</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody class="mt-4">
+                      <% @bills.each do |bill| %>
+                        <%= render bill %>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="row mt-4">
+                  <div class="text-center">
+                    <%= link_to 'Back', employees_path, class: "btn btn-secondary" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

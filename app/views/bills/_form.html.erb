@@ -1,32 +1,51 @@
-<%= form_with(model: bill) do |form| %>
-  <% if bill.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+<section class="intro">
+  <div class="gradient-custom-1 h-100">
+    <div class="d-flex pt-5 mt-5 h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <div class="card shadow-lg border-0 rounded">
+              <div class="card-body">
+                <h2 class="card-title text-center"><%= @bill.new_record? ? 'New Bill' : 'Edit Bill' %></h2>
+                <%= form_with(model: bill, local: true) do |form| %>
+                  
+                  <div class="mb-3">
+                    <%= form.label :amount, class: 'form-label' %>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">INR</span>
+                      </div>
+                      <%= form.text_field :amount, class: 'form-control' %>
+                    </div>
+                  </div>
 
-      <ul>
-        <% bill.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+                  
+                  <div class="mb-3">
+                    <%= form.label :type, class: 'form-label' %>
+                    <%= form.collection_select :bill_type, TYPES.map { |type| [type, type] }, :last, :first, { prompt: "Select Type" }, { class: 'form-select' } %>
+                  </div>
+
+                  
+                  <div class="mb-3">
+                    <%= form.label :employee_id, class: 'form-label'%>
+                    <%= form.collection_select :employee_id, @employees, :id, :full_name, { prompt:"Select employee" }, { class: 'form-select'} %>
+                  </div>
+
+                  <div class="row mt-4">
+                    <div class="col-6">
+                      <%= link_to 'Back', bills_path, class: "btn btn-secondary" %>
+                    </div>
+                    <div class="col-6 text-end">
+                      <%= form.submit 'Save', class: "btn btn-success" %>
+                    </div>
+                  </div>
+
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
   </div>
-
-  <div>
-    <%= form.label :type, style: "display: block" %>
-    <%= form.collection_select :bill_type, TYPES.map { |type| [type, type] }, :last, :first, prompt: "Select Type" %>
-  </div>
-
-  <div>
-    <%= form.label :employee_id, style: "display: block" %>
-    <%= form.collection_select :employee_id, @employees, :id, :full_name, prompt:"Select employee" %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</section>
