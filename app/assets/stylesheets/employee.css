@@ -1,0 +1,22 @@
+.no-employees-message {
+  margin-left: 30%;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #555;
+  background-color: #f8d7da;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  display: inline-block; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.no-employees-message i {
+  color: #856404;
+  margin-right: 5px;
+}
+
+
+#employees th {
+  background-color: #be7eed;
+  color: white;
+}
